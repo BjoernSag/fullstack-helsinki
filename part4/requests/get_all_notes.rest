@@ -1,0 +1,9 @@
+put http://localhost:3003/api/blogs/5d984fe3592aeb319cbd6819
+Content-Type: application/json
+
+{   
+    "title":"I am the king",
+    "author": "martin",
+    "url": "google.com",
+    "likes":"1235"
+}
