@@ -6,9 +6,11 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const config = require('./utils/config')
 const blogRouter = require('./controllers/blogs')
+const usersRouter = require('./controllers/users')
 const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
 const api = supertest(app)
+const loginRouter = require('./controllers/login')
 
 
 logger.info('connecting to', config.MONGODB_URI)
@@ -28,6 +30,8 @@ app.use(bodyParser.json())
 app.use(middleware.requestLogger)
 
 app.use('/', blogRouter)
+app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

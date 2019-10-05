@@ -1,0 +1,41 @@
+
+npm install express --save
+
+//To allow server on 3001 and client on 3000
+npm install cors --save 
+
+//Installing module to check how I write code
+npm i eslint --save-dev
+//to run it
+node_modules/.bin/eslint --init
+
+
+npm install dotenv --save
+To use the library, we create a .env file at the root of the project. 
+The environment variables are defined inside of the file, and it can look like this:
+
+MONGODB_URI=mongodb+srv://fullstack:sekred@cluster0-ostce.mongodb.net/note-app?retryWrites=true
+PORT=3001
+We also added the hardcoded port of the server into the PORT environment variable.
+
+The .env file should be gitignored right away, 
+since we do not want to publish any confidential information publicly online!
+
+npm install --save-dev nodemon
+
+npm install mongoose --save
+
+//For testing
+npm install --save-dev jest
+//For testing API
+npm install --save-dev supertest
+
+//To allow us to have different NODE_ENV modes in windows:
+npm install --save-dev cross-env
+
+SCRIPTS:
+
+"start": "cross-env NODE_ENV=production node index.js",
+    "watch": "cross-env NODE_ENV=development nodemon index.js",
+    "lint": "eslint .",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand"

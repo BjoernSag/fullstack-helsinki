@@ -1,9 +1,11 @@
-put http://localhost:3003/api/blogs/5d984fe3592aeb319cbd6819
+post http://localhost:3003/api/blogs
 Content-Type: application/json
+Authorization: bearer token
 
 {   
-    "title":"I am the king",
-    "author": "martin",
-    "url": "google.com",
-    "likes":"1235"
+    "title": "mluukkai",
+    "author": "test",
+    "likes": "222",
+    "url": "https://google.com",
+    "userId": "5d9867f7f104a205a4949e07"
 }
