@@ -15,23 +15,25 @@ postsRouter.get('/', async (req, res) => {
     res.send('<h1>Hello World!</h1>')
   })
 
+
+  postsRouter.get('/api/blogs/:id', async (request, response, next) => {
+    try {
+      const blog = await Blog.findById(request.params.id)
+      if(blog) {
+        response.json(blog.toJSON())
+      }else {
+        response.status(404).end()
+      }
+    }catch(exception) {
+      next(exception)
+    }
+  })
 postsRouter.get('/api/blogs', async (request, response) => {
     const blogs = await Blog.find({}).populate('user', { username: 1, name: 1 })
     response.json(blogs.map(post => post.toJSON()))
 })
 
-postsRouter.get('/api/blogs/:id', async (request, response, next) => {
-  try {
-    const blog = await Blog.findById(request.params.id)
-    if(blog) {
-      response.json(blog.toJSON())
-    }else {
-      response.status(404).end()
-    }
-  }catch(exception) {
-    next(exception)
-  }
-})
+
 
 postsRouter.post('/api/blogs', async (request, response, next) => {
   const body = request.body
@@ -44,7 +46,6 @@ postsRouter.post('/api/blogs', async (request, response, next) => {
       return response.status(401).json({ 
         error: 'token missing or invalid' })
     }
-
   const user = await User.findById(body.userId)
 
   const blog = new Blog({

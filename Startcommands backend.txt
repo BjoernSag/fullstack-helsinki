@@ -21,8 +21,10 @@ We also added the hardcoded port of the server into the PORT environment variabl
 The .env file should be gitignored right away, 
 since we do not want to publish any confidential information publicly online!
 
+//for fast update no need to recompile 
 npm install --save-dev nodemon
 
+//For database
 npm install mongoose --save
 
 //For testing
@@ -32,6 +34,16 @@ npm install --save-dev supertest
 
 //To allow us to have different NODE_ENV modes in windows:
 npm install --save-dev cross-env
+
+//if you need passwords, then this generates a password hash
+npm install bcrypt --save	
+
+//to check the uniqueness of a field(ensure, espescially important for usernames)
+npm install --save mongoose-unique-validator
+
+
+//For login -- Creating tokens
+npm install jsonwebtoken --save
 
 SCRIPTS:
 
