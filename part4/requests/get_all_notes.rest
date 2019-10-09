@@ -1,6 +1,6 @@
 post http://localhost:3003/api/blogs
 Content-Type: application/json
-Authorization: bearer token
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI1ZDk4NjdmN2YxMDRhMjA1YTQ5NDllMDciLCJpYXQiOjE1NzAzMzg2MzZ9.T11a9HhuisjlXp-zQnvO8W38qXHaOuQbSWBt4b2Ai3A
 
 {   
     "title": "mluukkai",

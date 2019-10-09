@@ -144,7 +144,7 @@ const App = () => {
           />
         </Togglable> :
         <div>
-          <p>{user.name} logged in</p>
+          <p>{user.name} {currentId} logged in</p> 
           <button type="submit" onClick={() => { logout()}}>logout</button>
           <Togglable buttonLabel="new BlogPost">
             <BlogForm
@@ -157,6 +157,7 @@ const App = () => {
               handleUrlChange={handleUrlChange}
             />
           </Togglable>
+
           <h3>
             Blogs:
             {rows()}
